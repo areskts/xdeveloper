@@ -18,7 +18,8 @@
 
 
 	<!-- 加载配置文件 加密的 -->
-	<bean id="environmentVariablesConfiguration" class="jjwu.xdeveloper.core.securiy.config.EnvironmentStringPBEConfig" />
+	<bean id="environmentVariablesConfiguration"
+		class="jjwu.xdeveloper.core.securiy.config.EnvironmentStringPBEConfig" />
 
 	<bean id="configurationEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
 		<property name="config" ref="environmentVariablesConfiguration" />
@@ -51,7 +52,8 @@
 	</bean>
 
 
-	<bean id="connectorSqlSessionFactory" class="jjwu.xdeveloper.java.mybatise.core.factory.ConnectorSqlSessionFactory"
+	<bean id="connectorSqlSessionFactory"
+		class="jjwu.xdeveloper.java.mybatise.core.factory.ConnectorSqlSessionFactory"
 		lazy-init="true">
 		<property name="dataSource" ref="dynamicDataSource" />
 		<property name="mapperLocations">
@@ -60,19 +62,19 @@
 			</list>
 		</property>
 	</bean>
-	
-	
-	
+
+
+
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="test-dataSource" />
-		<property name="mapperLocations" value="classpath*:/mybaties/sqlmap/*.xml"/>
+		<property name="mapperLocations" value="classpath*:/mybaties/sqlmap/*.xml" />
 	</bean>
-	
+
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" />
 	</bean>
-	
-	<bean id="test-dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" >
+
+	<bean id="test-dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<!-- 数据库连接基本信息 -->
 		<property name="jdbcUrl" value="${db.driver-url}" />
 		<property name="driverClass" value="${db.driver-class}" />

@@ -9,7 +9,6 @@
 
 	<groupId>jjwu.xdeveloper.java.mybatise</groupId>
 	<artifactId>xdeveloper-java-mybatise</artifactId>
-	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<name>xdeveloper-java-mybatise</name>
 	<url>http://maven.apache.org</url>
