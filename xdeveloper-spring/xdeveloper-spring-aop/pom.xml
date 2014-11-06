@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>xdeveloper-spring</artifactId>
+		<groupId>jjwu.xdeveloper.spring</groupId>
+		<version>1.0.0</version>
+	</parent>
+	<groupId>jjwu.xdeveloper.spring.aop</groupId>
+	<artifactId>xdeveloper-spring-aop</artifactId>
+	<version>1.0.0</version>
+	<name>xdeveloper-spring-aop</name>
+	<url>http://maven.apache.org</url>
+	
+	
+	<dependencies>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>3.0</version>
+		</dependency>
+	</dependencies>
+</project>

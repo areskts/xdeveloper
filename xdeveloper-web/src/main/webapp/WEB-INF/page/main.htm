@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>${data.title}</title>
+<script type='text/javascript'
+	src="${request.contextPath}/js/jsloader.js"></script>
+<script type='text/javascript'
+	src="${request.contextPath}/js/app/appEngine.js"></script>
+</head>
+<body>
+	<form action="login.do" method="post">
+		姓名:<input type="text" value="" id="username" name="username"/> <br> 
+		年龄:<input type="password" value="" id="password"  name="password"/> <br> 
+		<input type="submit" value="提交">
+	</form>
+
+	<script type='text/javascript'>
+		var ajax = new AppAjax("test.do", function(data) {
+			if (data) {
+				$('username').value = data.name;
+				$('age').value = data.age;
+				$('sex').value = data.sex;
+			}
+		});
+		ajax.submit();
+	</script>
+</body>
+</html>

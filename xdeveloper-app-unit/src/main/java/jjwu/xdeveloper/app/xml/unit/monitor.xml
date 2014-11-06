@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<monitor>
+	<username></username>
+	<password></password>
+
+
+
+	<mqtotals>
+		<mqtotal>
+			<host></host>
+			<maxwarn></maxwarn>
+			<phone></phone>
+		</mqtotal>
+		<mqtotal>
+			<host></host>
+			<maxwarn></maxwarn>
+			<phone></phone>
+		</mqtotal>
+	</mqtotals>
+
+	<mqqueues>
+		<mqqueue>
+			<host></host>
+			<virtualhost></virtualhost>
+			<queues>
+				<queue>
+					<name></name>
+					<maxwarn></maxwarn>
+				</queue>
+				<queue>
+					<name></name>
+					<maxwarn></maxwarn>
+				</queue>
+			</queues>
+			<phone></phone>
+		</mqqueue>
+		<mqqueue>
+			<host></host>
+			<virtualhost></virtualhost>
+			<queues>
+				<queue>
+					<name></name>
+					<maxwarn></maxwarn>
+				</queue>
+				<queue>
+					<name></name>
+					<maxwarn></maxwarn>
+				</queue>
+			</queues>
+			<phone></phone>
+		</mqqueue>
+	</mqqueues>
+
+</monitor>

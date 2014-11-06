@@ -1,0 +1,19 @@
+<jjwu.xdeveloper.app.xml.unit.Monitor>
+	<mqqueues>
+		<mqqueue id = "111">
+			<host>127.0.0.1</host>
+			<phones>13776801367</phones>
+			<virtualhost>task-p1-game</virtualhost>
+		</mqqueue>
+	</mqqueues>
+	<mqtotals>
+		<mqtotal id = "111">
+			<host>127.0.0.1</host>
+			<maxwarn>100</maxwarn>
+			<phones>13776801367</phones>
+		</mqtotal>
+	</mqtotals>
+	<password>guest</password>
+	<username>guest</username>
+</jjwu.xdeveloper.app.xml.unit.Monitor>
+

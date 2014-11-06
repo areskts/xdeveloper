@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activity id="2101000001" name="金蛇活动" status="1">
+	<calc-time>
+		<begintime>1369152000000</begintime>
+		<endtime>1388419200000</endtime>
+	</calc-time>
+	<policy>
+		<actions />
+		<goal id="1" stage="1">
+			<condition type="and">
+				<condition type="join">
+					<joinType value="3" />
+					<qualificationCheck value="false" />
+					<registerDateCheck value="false" />
+				</condition>
+			</condition>
+			<rewardRule id="22" name="金蛇友情卡">
+				<activateAreas value="" />
+				<prize id="15" prizeName="友情卡" prizeType="1" distributeId="3"	denomination="0" rewardType="2" probability="100.0" />
+			</rewardRule>
+		</goal>
+	</policy>
+</activity>

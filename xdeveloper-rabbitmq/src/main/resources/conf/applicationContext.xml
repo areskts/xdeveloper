@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<!-- 配置MQ连接源 -->
+	<bean id="rabbitMQSource" class="com.rabbitmq.client.ConnectionFactory">
+		<property name="username" value="dev" />
+		<property name="password" value="dev2012" />
+		<property name="virtualHost" value="sm-activity" />
+		<property name="host" value="192.168.16.156" />
+		<property name="port" value="5672" />
+		<property name="requestedHeartbeat" value="0" />
+	</bean>
+	<bean id="connectionFactory" class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
+		<constructor-arg ref="rabbitMQSource" />
+		<property name="channelCacheSize" value="5" />
+	</bean>
+	<!-- 创建rabbitAdmin 代理类,初始调用initialize,它会指定执行我们定义的Exchange,Queue,Binding -->
+	<bean class="org.springframework.amqp.rabbit.core.RabbitAdmin"	init-method="initialize">
+		<constructor-arg ref="connectionFactory" />
+	</bean>
+	
+	<bean id="rabbitTemplate" class="org.springframework.amqp.rabbit.core.RabbitTemplate">
+		<constructor-arg ref="connectionFactory" />
+	</bean>
+
+
+	<!-- 声明消息转换器为Simple MessageConverter -->
+	<bean id="messageConverter" 	class="org.springframework.amqp.support.converter.SimpleMessageConverter " />
+
+	<bean id="omsExchange" class="org.springframework.amqp.core.TopicExchange">
+		<constructor-arg value="iwgame.xcloud.oms.center.exchange" />
+	</bean>
+	
+	<bean id="omsQueue" class="org.springframework.amqp.core.Queue">
+		<constructor-arg index="0" value="iwgame.xcloud.oms.nodeid" />
+		<constructor-arg index="1" value="false" />
+	</bean>
+	
+	<bean id="omsBinding" class="org.springframework.amqp.core.Binding">
+		<constructor-arg index="0" value="iwgame.xcloud.oms.nodeid" />
+		<constructor-arg index="1" value="QUEUE" />
+		<constructor-arg index="2" 	value="iwgame.xcloud.oms.center.exchange" />
+		<constructor-arg index="3" value="nodeid" />
+		<constructor-arg index="4">
+			<null />
+		</constructor-arg>
+	</bean>
+	
+	
+
+
+
+	<!-- 公告发送模块-监听生产者发送的消息开始 <bean id="smsActTaskHandler" class="自己的实现类" /> -->
+
+	<!-- 用于消息的监听的代理类MessageListenerAdapter <bean id="smsActSendingAdapter" class="org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter"> 
+		<constructor-arg ref="smsActTaskHandler" /> <property name="defaultListenerMethod" 
+		value="handleSmsAct" /> <property name=" messageConverter" ref="messageConverter" 
+		/> </bean> -->
+
+	<!-- 用于消息的监听的容器类SimpleMessageListenerContainer，对于queueName的值一定要与定义的Queue的值相同 
+		<bean class="org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer"> 
+		<property name="queueNames" value="${common.task.sms.queue.name}" /> <property 
+		name="connectionFactory" ref="connectionFactory" /> <property name="messageListener" 
+		ref="smsActSendingAdapter" /> <property name="concurrentConsumers" value="1" 
+		/> </bean> -->
+</beans>

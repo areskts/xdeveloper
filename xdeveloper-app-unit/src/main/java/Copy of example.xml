@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activity id="" name="" status="" beginTime="" endTime="" calcBeginTime="" calcEndTime="">
+	<policy>
+		<!--通知选项 -->
+		<notice type="sms|email" channelid="" value="" />
+		<data type="actor" enable="true" eql="">
+			 <filters operator="and">
+                <filter field="server" operator="eq" value="dx1game1,dx2game2" />
+                <filter field="level" operator="gt" value="30" />
+            </filters>
+		</data>
+		 <goals>
+			 <goal id="">
+				<!--达成条件 -->
+				<conditions>
+				<condition type="and">
+					<!--  joinType 1.注册参与 2.登陆参与 3.注册登录都可参与 -->
+					<!--  qualificationCheck 是否需要检测帐号资格 -->
+               		<!--  registerDateCheck 是否限制指定注册时间 -->
+					<condition type="join" joinType="" qualificationCheck="true" registerDateCheck="" />
+					 <!--指定参与者等级--><!--等级0注册即发道具卡-->
+					<condition type="level" value="" />
+                 	<!--指定参与者服务器列表-->
+					<condition type="server" value="" />
+       				<!--指定被邀请者条件   server:被邀请者所在服务器  level:被邀请者达到等级  count:满足要求的被邀请者数量-->
+					<condition type="invitee" server="" level="" count="" />
+                    <!--指定签到次数-->
+					<condition type="signin" count="" />
+				 </condition>
+				</conditions>
+			
+				<!--奖品信息 flag:发放标示,前端指定发放此奖品规则-->
+				<rewardRule id="" flag="">
+	             	<!--distributeId:道具卡派发批次ID denomination:水晶面额 rewardType:发放方式 probability:奖品抽奖几率 activateAreas:激活大区 maxDayAwardCount:每日最大发放量 maxTotalAwardCount:最大发放量-->
+					<prize id="" prizeName="" prizeType="" distributeId=""	denomination="" rewardType="" probability="" activateAreas="" maxDayAwardCount="" maxTotalAwardCount=""/>
+				</rewardRule>
+		</goal>
+ 	</goals>
+	</policy>
+</activity>

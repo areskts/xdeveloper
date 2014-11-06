@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activity id="3100000008" name="1407舞动上桑巴抽奖" status="3">
+	<calc-time>
+		<begintime>1404835200000</begintime>
+		<endtime>1406736000000</endtime>
+	</calc-time>
+	<policy>
+		<actions />
+		<goal id="1" stage="1">
+			<condition type="and">
+				<condition type="join">
+					<joinType />
+					<defaultLotteryCount value="10" />
+					<signinCount value="null" />
+				</condition>
+				<condition type="level">
+					<value>0</value>
+				</condition>
+			</condition>
+			<rewardRule id="48" name="1407新服舞动桑巴">
+				<maxAwardCount />
+				<prize id="76" prizeName="1407舞动桑巴之道具卡" prizeType="1"
+					distributeId="26" denomination="0" rewardType="2" probability="100.0"
+					dayMaxAwardCount="100" />
+				<prize id="75" prizeName="1407舞动桑巴之20元水晶" prizeType="2"
+					distributeId="0" denomination="20" rewardType="3" probability="3.0"
+					dayMaxAwardCount="30" />
+				<prize id="74" prizeName="1407舞动桑巴之10元水晶" prizeType="2"
+					distributeId="0" denomination="10" rewardType="3" probability="5.0"
+					dayMaxAwardCount="70" />
+				<prize id="73" prizeName="1407舞动桑巴之5元水晶" prizeType="2"
+					distributeId="0" denomination="5" rewardType="3" probability="15.0"
+					dayMaxAwardCount="140" />
+			</rewardRule>
+		</goal>
+	</policy>
+</activity>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activity id="210115644" name="官方发卡" status="">
+	<!--活动计算 -->
+	<calc-time begin="" end="" />
+	<!--活动策略配置 -->
+	<policy id="">
+		<!--通知选项 -->
+		<notice type="sms|email" channelid="" value="" />
+		<!--活动目标 -->
+		<goal>
+			<!--达成条件 -->
+			<conditions type="and">
+				<!--参与方式 -->
+				<!--  joinType 1.注册参与 2.登陆参与 3.注册登录都可参与 -->
+				<!--  qualificationCheck 是否需要检测帐号资格 -->
+				<condition type="join" qualificationCheck="true" joinType="1">
+					<!--指定注册日期 -->
+					<registerDateCheck value="true" begin=""  end = "" />
+				</condition>
+			</conditions>
+			<!--奖品信息 -->
+			<rewardRule id="1">
+				<!--道具卡激活大区 -->
+				<prize id="1" prizeName="逍遥卡" prizeType="道具卡" distributeId="3"	denomination="" rewardType="" probability="" activateAreas="大区" />
+			</rewardRule>
+		</goal>
+	</policy>
+</activity>
